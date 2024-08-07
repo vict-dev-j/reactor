@@ -4,10 +4,7 @@ spring:
 
   data:
     mongodb:
-      uri: mongodb://localhost:27017/accounts
-  autoconfigure:
-    exclude:
-      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+      uri: mongodb://mongo:27017/accounts
 
 server:
   port: 8080

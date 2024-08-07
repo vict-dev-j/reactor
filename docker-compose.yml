@@ -16,8 +16,11 @@ services:
       - mongo
     ports:
       - "8080:8080"
+    environment:
+      SPRING_DATA_MONGODB_URI: mongodb://mongo:27017/accounts
     networks:
       - reactor
 
 networks:
   reactor:
+    driver: bridge
