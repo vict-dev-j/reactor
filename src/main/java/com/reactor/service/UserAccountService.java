@@ -17,24 +17,24 @@ public class UserAccountService {
         return userAccountRepository.save(userAccount);
     }
 
-    public Flux<UserAccount> getAllUsers() {
+    public Flux<UserAccount> getAllUserAccount() {
         return userAccountRepository.findAll();
     }
 
-    public Mono<UserAccount> getUserById(String id) {
+    public Mono<UserAccount> getUserAccountById(String id) {
         return userAccountRepository.findById(id);
     }
 
-    public Mono<UserAccount> updateUser(String id, UserAccount customer) {
+    public Mono<UserAccount> updateUserAccount(String id, UserAccount userAccount) {
         return userAccountRepository.findById(id)
                 .flatMap(existingUser -> {
-                    existingUser.setName(customer.getName());
-                    existingUser.setEmail(customer.getEmail());
+                    existingUser.setName(userAccount.getName());
+                    existingUser.setEmail(userAccount.getEmail());
                     return userAccountRepository.save(existingUser);
                 });
     }
 
-    public Mono<Void> deleteUser(String id) {
+    public Mono<Void> deleteUserAccount(String id) {
         return userAccountRepository.deleteById(id)
                 .onErrorResume(e -> Mono.empty());
     }
