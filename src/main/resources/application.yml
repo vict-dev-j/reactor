@@ -2,6 +2,13 @@ spring:
   application:
     name: reactor
 
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/accounts
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+
 server:
   port: 8080
 

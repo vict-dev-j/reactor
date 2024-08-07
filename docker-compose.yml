@@ -9,7 +9,7 @@ services:
     networks:
       - reactor
 
-  app:
+  reactor:
     build: .
     container_name: reactor
     depends_on:

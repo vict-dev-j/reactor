@@ -19,14 +19,14 @@ public class UserAccountController {
 
     private final UserAccountService userAccountService;
 
-    @PostMapping
+    @PostMapping("/create")
     public Mono<ResponseEntity<UserAccount>> createUserAccount(@Valid @RequestBody UserAccount userAccount) {
         return userAccountService.saveUserAccount(userAccount)
                 .map(savedUser -> ResponseEntity.status(HttpStatus.CREATED).body(savedUser))
                 .onErrorResume(e -> Mono.just(ResponseEntity.badRequest().build()));
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public Flux<UserAccount> getAllUserAccounts() {
         return userAccountService.getAllUserAccount();
     }
